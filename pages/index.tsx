@@ -11,19 +11,18 @@ export default function Home({bookmarksData}: {bookmarksData: any}) {
             <Head>
                 <title>{siteTitle}</title>
             </Head>
-            <section className={utilStyles.headingMd}>
-                <ul className={utilStyles.list}>
-                    {bookmarksData.map(({title, url}: {title: string, url: string}) => (
-                        <Bookmark url={url} title={title}></Bookmark>
-                    ))}
-                </ul>
-            </section>
+            <div className={utilStyles.folderCollection}>
+                {Object.keys(bookmarksData).map((key) =>
+                    <Bookmark folder={key} bookmarkItems={bookmarksData[key]}></Bookmark>
+                )}
+            </div>
         </Layout>
     )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
     const bookmarksData = getBookmarksData();
+
     return {
         props: {
            bookmarksData,

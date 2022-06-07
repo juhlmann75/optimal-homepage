@@ -50,3 +50,17 @@
 .lightText {
     color: #666;
 }
+
+.folder {
+    border: solid;
+    margin: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 20rem;
+}
+
+.folderCollection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
