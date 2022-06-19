@@ -64,3 +64,8 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
