@@ -26,7 +26,7 @@ export default function Layout({
             </Head>
             <header className={styles.header}>
                 <>
-                    <h1 className={utilStyles.heading2Xl}>{name}</h1>
+                    <h1 className="text-3xl font-bold underline">{name}</h1>
                 </>
             </header>
             <main>

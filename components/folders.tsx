@@ -12,7 +12,7 @@ export default function Folders() {
     if (!folders) return null;
 
     return (
-        <div className={utilStyles.folderCollection}>
+        <div className="flex flex-wrap justify-evenly">
             {folders.map(folder => (
                 <div className={utilStyles.folder} key={folder.id}>
                     <h3>{folder.name}</h3>
