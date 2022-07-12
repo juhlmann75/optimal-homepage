@@ -1,11 +1,8 @@
 import Head from 'next/head';
-import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import React from "react";
 
-const name = 'Jonathan Uhlmann';
-export const siteTitle = 'Homepage';
+export const siteTitle = 'Optimal Homepage';
 
 export default function Layout({
     children,
@@ -15,8 +12,9 @@ export default function Layout({
     home?: boolean
 }) {
     return (
-        <div className={styles.container}>
+        <div className="container">
             <Head>
+                <title>{siteTitle}</title>
                 <link rel="icon" href="/favicon.ico" />
                 <meta
                     name="description"
@@ -24,16 +22,16 @@ export default function Layout({
                 />
                 <meta name="og:title" content={siteTitle} />
             </Head>
-            <header className={styles.header}>
-                <>
-                    <h1 className="text-3xl font-bold underline">{name}</h1>
-                </>
+            <header>
+                <div className="container">
+                    <h1 className="text-center text-3xl font-bold">{siteTitle}</h1>
+                </div>
             </header>
             <main>
                 {children}
             </main>
             {!home && (
-                <div className={styles.backToHome}>
+                <div>
                     <Link href="/">
                         <a>← Back to home</a>
                     </Link>

@@ -1,6 +1,6 @@
 import {useLiveQuery} from "dexie-react-hooks";
 import {db} from "../models/db";
-import utilStyles from "../styles/utils.module.css";
+import Image from "next/image";
 
 export default function Bookmarks({ folderId }: {folderId: number | undefined}) {
     const bookmarks = useLiveQuery(
@@ -11,10 +11,12 @@ export default function Bookmarks({ folderId }: {folderId: number | undefined}) 
     if (!bookmarks) return null;
 
     return (
-        <ul className={utilStyles.list}>
+        <ul className="list-none ">
             {bookmarks.map(bookmark => (
-                <li key={bookmark.url} className={utilStyles.listItem}>
-                    <a href={bookmark.url}>{bookmark.title}</a>
+                <li key={bookmark.url} className="truncate leading-loose">
+                    <a className="no-underline hover:underline" href={bookmark.url}>
+                        {bookmark.icon && <Image src={bookmark.icon} width={12} height={12}/>} {bookmark.title}
+                        </a>
                 </li>
             ))}
         </ul>

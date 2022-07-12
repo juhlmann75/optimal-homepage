@@ -6,11 +6,12 @@ import {Bookmark} from "node-bookmarks-parser/build/interfaces/bookmark";
 export async function saveDataInIndexDB(data: any) {
     if (data) {
         if (db.bookmarks) db.bookmarks.clear();
+        if (db.folders) db.folders.clear();
         return Object.keys(data).map(async (folderName) => {
             const bookmarksData = data[folderName];
             const folderId = await db.folders.add({name: folderName})
-            bookmarksData.map(async ({title, url}: { title: string, url: string }) => {
-                await db.bookmarks.add({folderId: folderId, title: title, url: url});
+            bookmarksData.map(async ({title, url, icon}: { title: string, url: string, icon: string }) => {
+                await db.bookmarks.add({folderId: folderId, title: title, url: url, icon: icon});
             })
         });
     }
@@ -48,7 +49,7 @@ export function getBookmarksContent(bookmarks: Bookmark[] | undefined, bookmarks
             return getBookmarksContent(value.children, bookmarksMap, folderName);
         }
         if (value.type == "bookmark") {
-            const bookmarkItem = {title: value.title, url: value.url};
+            const bookmarkItem = {title: value.title, url: value.url, icon: value.icon};
             const folderName = folder != undefined ? folder : 'Folder';
             const bookmarksList = bookmarksMap[folderName];
             if (bookmarksList != undefined) {

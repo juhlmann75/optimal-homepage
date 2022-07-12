@@ -4,4 +4,5 @@ export interface BookmarkItem {
     folderId: number;
     title: string;
     url: string;
+    icon: string;
 }
