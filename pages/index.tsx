@@ -2,13 +2,14 @@ import Layout, { siteTitle } from '../components/layout'
 import React from "react";
 import {saveBookmarksFile} from "../lib/utils";
 import Folders from "../components/folders";
+import BookmarksUpload from "../components/bookmarksUpload";
+import ToggleButton from "../components/toggleButton";
+import BookmarksUploadModal from "../components/bookmarksUploadModal";
 
 export default function Home() {
     return (
         <Layout home>
-            <div className="container text-center mt-6">
-                <input id={"bookmarksFile"} type={"file"} accept={"text/html"} onChange={saveBookmarksFile}/>
-            </div>
+            <ToggleButton></ToggleButton>
             <Folders></Folders>
         </Layout>
     )

@@ -1,15 +1,15 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import {ThemeProvider} from 'next-themes'
+import {ThemeProvider} from "next-themes";
 
-function app({ Component, pageProps }: AppProps) {
-  return (
-      <>
-        <ThemeProvider>
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </>
-  )
+function app({Component, pageProps}: AppProps) {
+    return (
+        <>
+            <ThemeProvider>
+                <Component {...pageProps} />
+            </ThemeProvider>
+        </>
+    )
 }
 
 export default app
