@@ -19,7 +19,7 @@ export default function BookmarksUploadModal() {
                     Import New Bookmarks File
                 </Modal.Header>
                 <Modal.Body>
-                    <BookmarksUpload></BookmarksUpload>
+                    <BookmarksUpload myVar={modalOpen} setMyVar={setModalOpen}></BookmarksUpload>
                 </Modal.Body>
             </Modal>
         </div>

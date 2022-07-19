@@ -1,7 +1,7 @@
-import React from "react";
+import React,{ Dispatch, SetStateAction }  from "react";
 import {saveBookmarksFile} from "../lib/utils";
 
-export default function BookmarksUpload() {
+export default function BookmarksUpload({myVar, setMyVar} : {myVar: boolean, setMyVar: Dispatch<SetStateAction<boolean>>}) {
 
     return (
         <div className="flex justify-center items-center w-full">
@@ -21,8 +21,15 @@ export default function BookmarksUpload() {
                         From
                         Chrome</p>
                 </div>
-                <input id="bookmarksFile" type="file" className="hidden" accept={"text/html"} onChange={saveBookmarksFile} />
+                <input id="bookmarksFile" type="file" className="hidden" accept={"text/html"} onChange={(() => uploadBookmarksFile({myVar, setMyVar}))} />
             </label>
         </div>
     )
+}
+
+function uploadBookmarksFile({myVar, setMyVar} : {myVar: boolean, setMyVar: Dispatch<SetStateAction<boolean>>}) {
+    if (setMyVar) {
+        setMyVar(!myVar);
+    }
+    saveBookmarksFile();
 }
