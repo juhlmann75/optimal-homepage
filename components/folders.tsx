@@ -25,7 +25,8 @@ export default function Folders() {
             <div className="flex flex-wrap justify-center">
                 {folders.map(folder => (
                     <div className="border-solid border-2 border-sky-500 rounded p-2 m-3 w-80" key={folder.id}>
-                        <h3 className="text-2xl font-bold">{folder.name}</h3>
+                        <h3 className="text-2xl font-bold mb-2">{folder.name}</h3>
+                        <hr />
                         <Bookmarks folderId={folder.id}></Bookmarks>
                     </div>
                 ))}

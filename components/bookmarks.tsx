@@ -11,7 +11,7 @@ export default function Bookmarks({ folderId }: {folderId: number | undefined}) 
     if (!bookmarks) return null;
 
     return (
-        <ul className="list-none ">
+        <ul className="list-none mt-2">
             {bookmarks.map(bookmark => (
                 <li key={bookmark.url} className="truncate leading-loose">
                     <a className="no-underline hover:underline" href={bookmark.url}>

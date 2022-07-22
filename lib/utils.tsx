@@ -3,14 +3,18 @@ import React from "react";
 import parse from "node-bookmarks-parser";
 import {Bookmark} from "node-bookmarks-parser/build/interfaces/bookmark";
 
-export async function saveDataInIndexDB(data: any) {
+interface BookmarksMap {
+    [name: string]: {title?: string, url?: string, icon?: string}[]
+}
+
+export async function saveDataInIndexDB(data: BookmarksMap) {
     if (data) {
         if (db.bookmarks) db.bookmarks.clear();
         if (db.folders) db.folders.clear();
         return Object.keys(data).map(async (folderName) => {
             const bookmarksData = data[folderName];
             const folderId = await db.folders.add({name: folderName})
-            bookmarksData.map(async ({title, url, icon}: { title: string, url: string, icon: string }) => {
+            bookmarksData.map(async ({title, url, icon}: { title?: string, url?: string, icon?: string }) => {
                 await db.bookmarks.add({folderId: folderId, title: title, url: url, icon: icon});
             })
         });
@@ -32,13 +36,16 @@ export function saveBookmarksFile() {
     }
 }
 
-export function getBookmarksData(bookmarksContent: any)  {
-    const bookmarksData = parse(bookmarksContent);
+export function getBookmarksData(bookmarksContent: string | ArrayBuffer | null)  {
+    if (typeof bookmarksContent == 'string') {
+        const bookmarksData = parse(bookmarksContent);
 
-    return getBookmarksContent(bookmarksData, {}, '');
+        return getBookmarksContent(bookmarksData, {}, '');
+    }
+    return {};
 }
 
-export function getBookmarksContent(bookmarks: Bookmark[] | undefined, bookmarksMap: any, folder: string | undefined) {
+export function getBookmarksContent(bookmarks: Bookmark[] | undefined, bookmarksMap: BookmarksMap, folder: string | undefined) {
     if (bookmarks == undefined) {
         return bookmarksMap;
     }

@@ -1,7 +1,7 @@
 import React,{ Dispatch, SetStateAction }  from "react";
 import {saveBookmarksFile} from "../lib/utils";
 
-export default function BookmarksUpload({myVar, setMyVar} : {myVar: boolean, setMyVar: Dispatch<SetStateAction<boolean>>}) {
+export default function BookmarksUpload({myVar, setMyVar} : {myVar?: boolean, setMyVar?: Dispatch<SetStateAction<boolean>>}) {
 
     return (
         <div className="flex justify-center items-center w-full">
@@ -27,7 +27,7 @@ export default function BookmarksUpload({myVar, setMyVar} : {myVar: boolean, set
     )
 }
 
-function uploadBookmarksFile({myVar, setMyVar} : {myVar: boolean, setMyVar: Dispatch<SetStateAction<boolean>>}) {
+function uploadBookmarksFile({myVar, setMyVar} : {myVar?: boolean, setMyVar?: Dispatch<SetStateAction<boolean>>}) {
     if (setMyVar) {
         setMyVar(!myVar);
     }
