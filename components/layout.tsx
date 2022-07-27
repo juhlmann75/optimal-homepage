@@ -22,20 +22,8 @@ export default function Layout({
                 />
                 <meta name="og:title" content={siteTitle} />
             </Head>
-            <header>
-                <div className="container">
-                    <h1 className="text-center text-3xl font-bold">{siteTitle}</h1>
-                </div>
-            </header>
             <main>
                 {children}
             </main>
-            {!home && (
-                <div>
-                    <Link href="/">
-                        <a>← Back to home</a>
-                    </Link>
-                </div>
-            )}
         </div>
     );}
