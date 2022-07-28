@@ -13,7 +13,7 @@ const ToggleButton: React.FunctionComponent = () => {
             <button
                 type="button"
                 aria-label="Light and Dark Mode Toggle Button"
-                className="inline-flex items-center px-3 py-2 shadow-sm text-xs font-medium rounded bg-white hover:scale-110 duration-500"
+                className="inline-flex items-center px-3 py-2 shadow-sm text-xs font-medium rounded hover:scale-110 duration-500"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             >
                 {theme === 'light' ? '☀️' : '🌙'}

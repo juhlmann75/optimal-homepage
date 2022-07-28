@@ -22,7 +22,7 @@ export default function CurrentDate() {
     const time = today.toLocaleTimeString(locale, { hour: 'numeric', hour12: true, minute: 'numeric' });
 
     return (
-        <div className="flex items-center justify-center m-4">
+        <div>
             {date} {time}
         </div>
     );

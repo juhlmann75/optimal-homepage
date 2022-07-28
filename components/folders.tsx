@@ -4,6 +4,7 @@ import Bookmarks from "./bookmarks";
 import BookmarksUpload from "./bookmarksUpload";
 import ToggleButton from "./toggleButton";
 import BookmarksUploadModal from "./bookmarksUploadModal";
+import CurrentDate from "./currentDate";
 
 export default function Folders() {
 
@@ -13,7 +14,7 @@ export default function Folders() {
 
     if (!folders || folders.length == 0) {
         return (
-            <div className="box-content md:mx-auto px-4">
+            <div className="box-content md:mx-auto p-4">
                 <BookmarksUpload></BookmarksUpload>
             </div>
         )
@@ -21,7 +22,9 @@ export default function Folders() {
 
     return (
         <div>
-            <BookmarksUploadModal></BookmarksUploadModal>
+            <div className="flex items-center justify-center m-4">
+                <CurrentDate></CurrentDate>
+            </div>
             <div className="flex flex-wrap justify-center">
                 {folders.map(folder => (
                     <div className="border-solid border-2 border-sky-500 rounded p-2 m-3 w-80" key={folder.id}>
