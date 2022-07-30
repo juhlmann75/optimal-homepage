@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import React from "react";
 
 export const siteTitle = 'Optimal Homepage';
@@ -26,4 +25,5 @@ export default function Layout({
                 {children}
             </main>
         </div>
-    );}
+    );
+}

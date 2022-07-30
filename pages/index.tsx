@@ -3,6 +3,7 @@ import React from "react";
 import Folders from "../components/folders";
 import TopNavbar from "../components/topNavbar";
 import CurrentDate from "../components/currentDate";
+import Search from "../components/search";
 
 export default function Home() {
     return (
@@ -11,6 +12,9 @@ export default function Home() {
             <Layout home>
                 <div className="flex items-center justify-center m-4">
                     <CurrentDate></CurrentDate>
+                </div>
+                <div className="">
+                    <Search></Search>
                 </div>
                 <Folders></Folders>
             </Layout>
