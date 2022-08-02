@@ -22,8 +22,8 @@ export default function CurrentDate() {
     const time = today.toLocaleTimeString(locale, { hour: 'numeric', hour12: true, minute: 'numeric' });
 
     return (
-        <div>
-            {date} {time}
+        <div className="text-5xl">
+            {time}
         </div>
     );
 }

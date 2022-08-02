@@ -4,6 +4,7 @@ import Folders from "../components/folders";
 import TopNavbar from "../components/topNavbar";
 import CurrentDate from "../components/currentDate";
 import Search from "../components/search";
+import Quote from "../components/quote";
 
 export default function Home() {
     return (
@@ -16,6 +17,7 @@ export default function Home() {
                 <div className="">
                     <Search></Search>
                 </div>
+                <Quote></Quote>
                 <Folders></Folders>
             </Layout>
         </div>
