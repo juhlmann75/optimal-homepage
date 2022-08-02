@@ -25,11 +25,13 @@ export default function Quote() {
     if (!quote) return <p>No data</p>
 
     return (
-        <div className="text-center text-4xl subpixel-antialiased my-5">
-            <blockquote>&ldquo; {quote.q}
-                &rdquo; &mdash;
-                <footer>{quote.a}</footer>
+        <div>
+            <blockquote>
+                <p className="text-center text-3xl subpixel-antialiased mt-8">"{quote.q}"</p>
             </blockquote>
+            <figcaption className="flex items-center justify-center my-3 space-x-3">
+                <div className="pr-3 font-medium text-gray-900 dark:text-white">- {quote.a}</div>
+            </figcaption>
         </div>
     )
 }
