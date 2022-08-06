@@ -1,7 +1,6 @@
 import {Navbar} from "flowbite-react";
 import React from "react";
 import ToggleButton from "./toggleButton";
-import CurrentDate from "./currentDate";
 import BookmarksUploadModal from "./bookmarksUploadModal";
 
 export default function TopNavbar() {

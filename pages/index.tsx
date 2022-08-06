@@ -3,6 +3,7 @@ import React from "react";
 import Folders from "../components/folders";
 import TopNavbar from "../components/topNavbar";
 import CurrentDate from "../components/currentDate";
+import Search from "../components/search";
 import Quote from "../components/quote";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
                     <CurrentDate></CurrentDate>
                 </div>
                 <Quote></Quote>
+                <Search></Search>
                 <Folders></Folders>
             </Layout>
         </div>
