@@ -13,9 +13,6 @@ export default function Search() {
 
     return (
         <form className="flex flex-col mb-6 max-w-2xl mx-auto"
-              action="https://www.google.com/search"
-              method="GET"
-              target="_blank"
               autoComplete="off"
               onSubmit={handleSubmit}>
             <div>
