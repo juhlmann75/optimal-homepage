@@ -1,11 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.gsq_a {
-    color: black !important;
-}
-
-.gsc-input {
-    color: black !important;
-}

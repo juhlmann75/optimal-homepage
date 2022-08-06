@@ -1,33 +1,44 @@
-import Script from "next/script";
-import {useEffect, useState} from "react";
+import {Label, TextInput, Button} from "flowbite-react";
+import {useState} from "react";
 
 export default function Search() {
-    const [loaded, setLoaded] = useState(false);
 
-    useEffect(() => {
-        const scriptTag = document.createElement('script');
-        scriptTag.src = 'https://cse.google.com/cse.js?cx=f175aeb8db7f24a31';
-        scriptTag.addEventListener('load', ()=>setLoaded(true));
-        document.body.appendChild(scriptTag);
-    }, []);
+    const [searchText, setSearchText] = useState('');
 
-    useEffect(() => {
-        if (!loaded) return;
-        const searchBox = document.getElementById("gsc-i-id1");
-
-        if (searchBox != null) {
-            console.log("not null");
-            searchBox.focus();
-        }
-        console.log(document);
-        console.log(loaded);
-    }, [loaded]);
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        window.open('https://www.google.com/search?q=' + searchText, '_blank')
+        setSearchText('');
+    }
 
     return (
-        <div className="text-center search">
-            <div className="max-w-lg mx-auto my-3">
-                <div className="gcse-search"></div>
+        <form className="flex flex-col mb-6 max-w-2xl mx-auto"
+              action="https://www.google.com/search"
+              method="GET"
+              target="_blank"
+              autoComplete="off"
+              onSubmit={handleSubmit}>
+            <div>
+                <div className="mb-2 block">
+                    <Label
+                        htmlFor="search"
+                        value="Google"
+                    />
+                </div>
+                <TextInput
+                    id="search"
+                    type="text"
+                    sizing="lg"
+                    name="q"
+                    value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)}
+                />
             </div>
-        </div>
+            <div className="text-center mx-auto mt-3">
+                <Button type="submit">
+                    Search
+                </Button>
+            </div>
+        </form>
     )
 }
