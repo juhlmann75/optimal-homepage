@@ -27,7 +27,7 @@ export default function Quote() {
     return (
         <div>
             <blockquote>
-                <p className="text-center text-3xl subpixel-antialiased mt-8">"{quote.q}"</p>
+                <p className="text-center text-3xl subpixel-antialiased mt-8">&ldquo;{quote.q}&rdquo;</p>
             </blockquote>
             <figcaption className="flex items-center justify-center my-3 space-x-3">
                 <div className="pr-3 font-medium text-gray-900 dark:text-white">- {quote.a}</div>
