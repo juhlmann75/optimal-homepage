@@ -15,6 +15,11 @@ module.exports = {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+		scale: {
+		'175': '1.75',
+		'200': '2.00',
+		}
+	},
   },
 }
