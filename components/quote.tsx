@@ -1,10 +1,31 @@
+import {useEffect, useState} from "react";
+
 export interface QuoteData {
     q: string,
     a: string,
     h: string
 }
 
-export default function Quote({data}: {data: QuoteData[]}) {
+export default function Quote() {
+    const [data, setData] = useState<QuoteData[]>()
+    const [isLoading, setLoading] = useState(false)
+
+    useEffect( () => {
+        const fetchQuote = async () => {
+            setLoading(true)
+            await fetch('/api/today')
+                .then((res) => res.json())
+                .then((quoteData) => {
+                    setData(quoteData)
+                })
+        }
+        fetchQuote().then(() => {
+            setLoading(false)
+        });
+    }, [])
+
+    if (isLoading) return <p>Loading...</p>
+    if (!data) return <p>No quote data</p>
 
     return (
         <div>

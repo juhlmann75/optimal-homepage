@@ -4,9 +4,9 @@ import Folders from "../components/folders";
 import TopNavbar from "../components/topNavbar";
 import CurrentDate from "../components/currentDate";
 import Search from "../components/search";
-import Quote, {QuoteData} from "../components/quote";
+import Quote from "../components/quote";
 
-export default function Home({ data }: {data: QuoteData[]}) {
+export default function Home() {
     return (
         <div>
             <TopNavbar></TopNavbar>
@@ -14,19 +14,10 @@ export default function Home({ data }: {data: QuoteData[]}) {
                 <div className="flex items-center justify-center m-4">
                     <CurrentDate></CurrentDate>
                 </div>
-                <Quote data={data}></Quote>
+                <Quote></Quote>
                 <Search></Search>
                 <Folders></Folders>
             </Layout>
         </div>
     )
-}
-
-export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await fetch(`https://zenquotes.io/api/today`)
-    const data = await res.json()
-
-    // Pass data to the page via props
-    return { props: { data } }
 }
