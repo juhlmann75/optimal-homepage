@@ -14,7 +14,9 @@ export default function Home() {
                 <div className="flex items-center justify-center m-4">
                     <CurrentDate></CurrentDate>
                 </div>
-                <Quote></Quote>
+                <div className="text-center">
+                    <Quote></Quote>
+                </div>
                 <Search></Search>
                 <Folders></Folders>
             </Layout>
