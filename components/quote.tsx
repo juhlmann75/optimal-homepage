@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {Spinner} from "flowbite-react";
 
 export interface QuoteData {
     q: string,
@@ -24,7 +25,7 @@ export default function Quote() {
         });
     }, [])
 
-    if (isLoading) return <p>Loading...</p>
+    if (isLoading) return <Spinner size="xl" aria-label="loading daily quote" />
     if (!data) return <p>No quote data</p>
 
     return (
