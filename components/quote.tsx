@@ -25,13 +25,18 @@ export default function Quote() {
         });
     }, [])
 
-    if (isLoading) return <Spinner size="xl" aria-label="loading daily quote" />
+    if (isLoading) {
+        return (
+            <div className="h-28 mt-8" >
+                <Spinner size="xl" aria-label="loading daily quote" />
+            </div>
+        )
+    }
     if (!data) return <p>No quote data</p>
-
     return (
-        <div>
+        <div className="h-28 mt-8">
             <blockquote>
-                <p className="text-center text-3xl subpixel-antialiased mt-8">&ldquo;{data[0].q}&rdquo;</p>
+                <p className="text-center text-3xl subpixel-antialiased">&ldquo;{data[0].q}&rdquo;</p>
             </blockquote>
             <figcaption className="flex items-center justify-center my-3 space-x-3">
                 <div className="pr-3 font-medium text-gray-900 dark:text-white">- {data[0].a}</div>
