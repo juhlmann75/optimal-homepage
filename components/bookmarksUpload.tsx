@@ -1,5 +1,5 @@
 import React,{ Dispatch, SetStateAction }  from "react";
-import {saveBookmarksFile} from "../lib/utils";
+import {saveBookmarksFile} from "../lib/bookmarksUtils";
 
 export default function BookmarksUpload({myVar, setMyVar} : {myVar?: boolean, setMyVar?: Dispatch<SetStateAction<boolean>>}) {
 

@@ -1,4 +1,4 @@
-import {db} from "../models/db";
+import {bookmarksDB} from "../models/bookmarksDB";
 import React from "react";
 import parse from "node-bookmarks-parser";
 import {Bookmark} from "node-bookmarks-parser/build/interfaces/bookmark";
@@ -9,13 +9,13 @@ interface BookmarksMap {
 
 export async function saveDataInIndexDB(data: BookmarksMap) {
     if (data) {
-        if (db.bookmarks) db.bookmarks.clear();
-        if (db.folders) db.folders.clear();
+        if (bookmarksDB.bookmarks) bookmarksDB.bookmarks.clear();
+        if (bookmarksDB.folders) bookmarksDB.folders.clear();
         return Object.keys(data).map(async (folderName) => {
             const bookmarksData = data[folderName];
-            const folderId = await db.folders.add({name: folderName})
+            const folderId = await bookmarksDB.folders.add({name: folderName})
             bookmarksData.map(async ({title, url, icon}: { title?: string, url?: string, icon?: string }) => {
-                await db.bookmarks.add({folderId: folderId, title: title, url: url, icon: icon});
+                await bookmarksDB.bookmarks.add({folderId: folderId, title: title, url: url, icon: icon});
             })
         });
     }

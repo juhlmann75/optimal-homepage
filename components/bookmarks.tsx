@@ -1,10 +1,10 @@
 import {useLiveQuery} from "dexie-react-hooks";
-import {db} from "../models/db";
+import {bookmarksDB} from "../models/bookmarksDB";
 import Image from "next/image";
 
 export default function Bookmarks({ folderId }: {folderId: number | undefined}) {
     const bookmarks = useLiveQuery(
-        async () => db.bookmarks.where({folderId: folderId}).toArray(),
+        async () => bookmarksDB.bookmarks.where({folderId: folderId}).toArray(),
         [folderId]
     );
 

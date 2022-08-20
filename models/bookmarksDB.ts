@@ -16,4 +16,4 @@ export class BookmarksDB extends Dexie {
     }
 }
 
-export const db = new BookmarksDB();
+export const bookmarksDB = new BookmarksDB();
