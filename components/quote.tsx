@@ -27,14 +27,14 @@ export default function Quote() {
 
     if (isLoading) {
         return (
-            <div className="h-28 mt-8" >
+            <div className="md:h-20 sm:h-32 my-8" >
                 <Spinner size="xl" aria-label="loading daily quote" />
             </div>
         )
     }
     if (!data) return <p>No quote data</p>
     return (
-        <div className="h-28 mt-8">
+        <div className="md:h-20 sm:h-32 my-8">
             <blockquote>
                 <p className="text-center text-3xl subpixel-antialiased">&ldquo;{data[0].q}&rdquo;</p>
             </blockquote>
