@@ -10,21 +10,24 @@ interface Props {
 
 export function AddTodoItem({ todoList }: Props) {
 
-    if (todoList.id == undefined) {
-        return null;
+    let todoListIdValue = 0;
+
+    if (todoList.id != undefined) {
+        todoListIdValue = todoList.id;
     }
 
     const [item, setItem] = useState<TodoItem>({
-        todoListId: todoList.id,
+        todoListId: todoListIdValue,
         title: ''
     });
 
+    if (item.todoListId == 0) {
+        return null;
+    }
+
     return (
-        <div className="row add-item">
-            <div className="narrow">
-                <Checkbox disabled />
-            </div>
-            <div className="todo-item-input">
+        <div>
+            <div>
                 <TextInput
                     type="text"
                     placeholder="Add todo item..."

@@ -15,7 +15,7 @@ export default function Bookmarks({ folderId }: {folderId: number | undefined}) 
             {bookmarks.map(bookmark => (
                 <li key={bookmark.url} className="truncate leading-loose">
                     <a className="no-underline hover:underline" href={bookmark.url}>
-                        {bookmark.icon && <Image src={bookmark.icon} width={12} height={12}/>} {bookmark.title}
+                        {bookmark.icon && <Image alt="bookmark icon" src={bookmark.icon} width={12} height={12}/>} {bookmark.title}
                         </a>
                 </li>
             ))}
