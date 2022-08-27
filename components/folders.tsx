@@ -1,12 +1,12 @@
 import {useLiveQuery} from "dexie-react-hooks";
-import {db} from "../models/db";
+import {bookmarksDB} from "../models/bookmarksDB";
 import Bookmarks from "./bookmarks";
 import BookmarksUpload from "./bookmarksUpload";
 
 export default function Folders() {
 
     const folders = useLiveQuery(async () => {
-        return db.folders.toArray();
+        return bookmarksDB.folders.toArray();
     });
 
     if (!folders || folders.length == 0) {
