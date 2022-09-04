@@ -7,7 +7,6 @@ export function TodoLists() {
     const lists = useLiveQuery(async () => todoListDB.todoLists.toArray());
 
     if (!lists) {
-        // resetDatabase();
         return null;
     }
 

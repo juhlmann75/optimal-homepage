@@ -20,7 +20,7 @@ export function TodoListView({ todoList }: Props) {
 
     return (
         <div className="border-solid border-2 border-sky-500 rounded p-2 m-3 max-w-2xl mx-auto">
-            <div className="flex items-start mb-3">
+            <div className="flex items-center mb-3">
                 <h2 className="text-xl font-bold">{todoList.title}</h2>
                 <div className="ml-3 p-1">
                     <a className="hover:cursor-pointer" onClick={() => deleteList(todoList.id)} title="Delete list">
