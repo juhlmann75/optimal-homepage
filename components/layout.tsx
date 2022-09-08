@@ -11,7 +11,7 @@ export default function Layout({
     home?: boolean
 }) {
     return (
-        <div className="container">
+        <div className="m-4">
             <Head>
                 <title>{siteTitle}</title>
                 <link rel="icon" href="/favicon.ico" />

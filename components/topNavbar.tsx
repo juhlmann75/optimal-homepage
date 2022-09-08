@@ -2,6 +2,7 @@ import {Navbar} from "flowbite-react";
 import React from "react";
 import ToggleButton from "./toggleButton";
 import BookmarksUploadModal from "./bookmarksUploadModal";
+import Options from "./options";
 
 export default function TopNavbar() {
     return (
@@ -18,6 +19,7 @@ export default function TopNavbar() {
             <Navbar.Collapse>
                 <ToggleButton></ToggleButton>
                 <BookmarksUploadModal></BookmarksUploadModal>
+                <Options />
             </Navbar.Collapse>
         </Navbar>
     )
