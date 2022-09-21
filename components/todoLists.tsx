@@ -11,7 +11,7 @@ export function TodoLists() {
     }
 
     return (
-        <div>
+        <div className="flex flex-wrap justify-center">
             {lists.map(list => (
                 <TodoListView key={list.id} todoList={list} />
             ))}
